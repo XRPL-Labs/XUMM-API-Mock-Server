@@ -11,9 +11,6 @@ const auth = (req, res, next) => {
   const key = process.env.XUMM_TEST_API_KEY ? process.env.XUMM_TEST_API_KEY : apiFixtures.api.key;
   const secret = process.env.XUMM_TEST_API_SECRET ? process.env.XUMM_TEST_API_SECRET : apiFixtures.api.secret;
 
-  console.debug(key, req.headers['x-api-key'])
-  console.debug(secret, req.headers['x-api-secret'])
-
   if (req.headers['x-api-key'] !== key || req.headers['x-api-secret'] !== secret) {
     return res.status(403).send(apiFixtures.invalidCredentials)
   }
