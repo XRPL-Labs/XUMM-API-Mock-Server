@@ -76,7 +76,7 @@ app.post('/kyc-status', auth, (req, res) => {
 })
 
 app.get('/kyc-status/:account', auth, (req, res) => {
-  const {account} = reg.params
+  const {account} = req.params
   const status = apiFixtures.kycStatus
 
   if (status.accountId !== account) {
