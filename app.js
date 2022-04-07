@@ -91,6 +91,28 @@ app.get('/xrpl-tx/:txid', auth, (req, res) => {
   res.send(tx.txid !== req.params.txid ? 404 : tx)
 })
 
+app.get('/user-token/:token', auth, (req, res) => {
+  res.send(fetchTokens([req.params.token]))
+})
+
+const fetchTokens = (tokenArr) => {
+  const { tokens } = apiFixtures.verifyUserToken
+  const result = tokens.filter((token) => tokenArr.includes(token.user_token))
+
+  return {'tokens': result}
+}
+
+app.post('/user-tokens', auth, (req, res) => {
+  const {tokens} = req.body
+
+  if (!tokens) {
+    res.sendStatus(400)
+    return
+  }
+
+  res.send(fetchTokens(tokens))
+})
+
 app.listen(port, () => {
   console.log(`Test server listening on port ${port}`)
 })

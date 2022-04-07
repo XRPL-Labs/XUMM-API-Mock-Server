@@ -331,5 +331,21 @@ module.exports = {
       "pushed": true,
       "uuid": "19dd8a5b-e167-49a1-8f21-50f0254c55ef"
     }
+  },
+  "verifyUserToken": {
+    "tokens": [
+      {
+        "user_token": "691d5ae8-968b-44c8-8835-f25da1214f35",
+        "active": true
+      },
+      {
+        "user_token": "b12b59a8-83c8-4bc0-8acb-1d1d743871f1",
+        "active": true
+      },
+      {
+        "user_token": "51313be2-5887-4ae8-9fda-765775a59e51",
+        "active": false
+      }
+    ]
   }
 }
